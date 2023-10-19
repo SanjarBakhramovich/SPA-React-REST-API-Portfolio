@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./AppClass.css";
+
 export default class AppClass extends Component {
   constructor(props) {
     super(props);
@@ -7,6 +8,7 @@ export default class AppClass extends Component {
       isTrue: false,
     };
   }
+
   toggleTrue = () => {
     if (this.state.isTrue) {
       this.setState({
@@ -32,9 +34,13 @@ export default class AppClass extends Component {
           </Fragment>
         )}
         <hr />
-        {this.state.isTrue ? <p> Is true</p> : <p> Is false</p>}
+        {this.state.isTrue ? <p>Is true</p> : <p>Is false</p>}
         <hr />
-        <a href="#!" className="btn btn-outline-secondary" onClick={this.toggleTrue}>
+        <a
+          href="#!"
+          className="btn btn-outline-secondary"
+          onClick={this.toggleTrue}
+        >
           Toggle isTrue
         </a>
       </>
