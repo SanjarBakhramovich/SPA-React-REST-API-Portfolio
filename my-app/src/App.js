@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import "./App.css";
 import Input from "./Input";
+// import "./AppClass"
 
 function HelloWorld(props) {
   const [isTrue, setIsTrue] = useState(true);
@@ -9,6 +10,10 @@ function HelloWorld(props) {
   const [lastName, setLastName] = useState("");
   const [dob, setDob] = useState("");
 
+  // refs
+  const firstNameRef = useRef();
+  const lastNameRef = useRef(null);
+  const dobRef = useRef(null);
   const toggleTrue = () => {
     if (isTrue) {
       setIsTrue(false);
@@ -73,6 +78,10 @@ function HelloWorld(props) {
     setFirstName("");
     setLastName("");
     setDob("");
+
+    firstNameRef.current.value="";
+    lastNameRef.current.value="";
+    dobRef.current.value="";
   }
 
   return (
@@ -102,6 +111,7 @@ function HelloWorld(props) {
               type="text"
               name="first-name"
               id="first-name"
+              ref={firstNameRef}
               autoComplete="first-name-new"
               className="form-control"
               onChange={(event) => setFirstName(event.target.value)}
@@ -111,6 +121,7 @@ function HelloWorld(props) {
           <Input
             title="Last Name"
             type="text"
+            ref={lastNameRef}
             name="last-name"
             autoComplete="last-name-new"
             className="form-control"
@@ -120,6 +131,7 @@ function HelloWorld(props) {
           <Input
             title="Date of Birth"
             type="date"
+            ref={dobRef}
             name="dob"
             autoComplete="dob-new"
             className="form-control"
