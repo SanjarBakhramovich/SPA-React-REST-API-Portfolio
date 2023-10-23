@@ -8,13 +8,13 @@ const Input = forwardRef((props, ref) => {
             </label>
             <input
                 type = {props.type}
-                className="props.className"
+                className={props.className}
                 id={props.name}
                 ref={ref}
                 name={props.name}
-                placeholder="props.placeholder"
+                placeholder={props.placeholder}
                 onChange={props.onChange}
-                autoComplete="props.autoComplete"
+                autoComplete={props.autoComplete}
                 value={props.value}
             />
             <div className={props.errorDiv}>{props.errorMsg}</div>
